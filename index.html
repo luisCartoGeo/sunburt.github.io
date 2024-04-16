@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Load plotly.js into the DOM -->
+	<script src='https://cdn.plot.ly/plotly-2.30.0.min.js'></script>
+</head>
+
+<body>
+<div id='myDiv'  style="width:100%;height:100%;"></div>
+<script>
+var data = [
+{
+  "type": "sunburst",
+  "labels": ["Activo Minero","Exploración", "Explotación", "Alta Prioridad","Alta Prioridad", "Media Prioridad", "Baja Prioridad"],
+  "parents": 
+  ["", "Activo Minero", "Activo Minero", "Exploración","Explotación", "Explotación","Explotación","Explotación"],
+  "values":  [50, 3, 47, 3, 31, 10, 6],
+  "leaf": {"opacity": 0.4},
+  "marker": {"line": {"width": 2}},
+  "branchvalues": 'total'
+}];
+
+var layout = {
+  "margin": {"l": 0, "r": 0, "b": 0, "t": 0},
+};
+
+
+Plotly.newPlot('myDiv', data, layout, {showSendToCloud: true})
+
+myPlot = document.getElementById("myDiv");
+
+</script>
+</body>
+</html>
