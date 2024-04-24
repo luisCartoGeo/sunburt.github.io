@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<div id='myDiv'  style="width:100%;height:100%;"></div>
+<div id='myDiv'></div>
 <script>
 var data = [
 {
@@ -24,11 +24,13 @@ var data = [
 
 var layout = {
   "margin": {"l": 0, "r": 0, "b": 0, "t": 0},
-  "paper_bgcolor":'black'
+  "paper_bgcolor":'black',
+  "autosize": true,
 };
+var config = {responsive: true};
 
 
-Plotly.newPlot('myDiv', data, layout, {showSendToCloud: true})
+Plotly.newPlot('myDiv', data, layout,{displayModeBar: false}, config)
 
 myPlot = document.getElementById("myDiv");
 
