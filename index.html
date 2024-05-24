@@ -1,0 +1,71 @@
+//<!doctype html>
+<html lang="en">//
+<head>
+	<!-- Load plotly.js into the DOM -->
+	<script src='https://cdn.plot.ly/plotly-2.30.0.min.js'></script>
+</head>
+
+<body>
+<div id='myDiv'  style="width:100%;height:100%;"></div>
+<script>
+var data = [
+{
+  "type": "sunburst",
+  "ids": ["Alta Prioridad", "Media Prioridad","Baja Prioridad",
+      "Alta Prioridad - Derecho Minero","Alta Prioridad - Servidumbre",
+      "Media Prioridad - Derecho Minero","Media Prioridad - Servidumbre",
+      "Baja Prioridad - Derecho Minero","Baja Prioridad - Servidumbre",
+      "Derecho Minero - Exploración","Derecho Minero - Explotación",
+      "Servidumbre - Servidumbre Minera","Servidumbre - Administrativa",
+      "Derecho Minero - Exploración","Derecho Minero - Explotación",
+      "Servidumbre - Servidumbre Minera","Servidumbre - Administrativa",
+      "Derecho Minero - Exploración","Derecho Minero - Explotación",
+      "Servidumbre - Servidumbre Minera","Servidumbre - Administrativa"],
+  "labels":
+       ["<b>Alta Prioridad</b>", "<b>Media Prioridad</b>","<b>Baja Prioridad</b>", 
+       "<I>Derecho Minero</I>","<I>Servidumbre</I>","<I>Derecho Minero</I>","<I>Servidumbre</I>",
+       "<I>Derecho Minero</I>","<I>Servidumbre</I>",
+       "<I>Exploración</I>","<I>Explotación</I>","<I>Servidumbre<br>Minera</I>","<I>Servidumbre<br>Administrativa</I>",
+       "<I>Exploración</I>","<I>Explotación</I>","<I>Servidumbre<br>Minera</I>","<I>Servidumbre<br>Administrativa</I>",
+       "<I>Exploración</I>","<I>Explotación</I>","<I>Servidumbre<br>Minera</I>","<I>Servidumbre<br>Administrativa</I>"],
+  "parents":
+       ["<b>Activos</b>", "<b>Activos</b>","<b>Activos</b>",
+       "Alta Prioridad","Alta Prioridad","Media Prioridad","Media Prioridad","Baja Prioridad",
+       "Baja Prioridad",
+       "Baja Prioridad - Derecho Minero","Baja Prioridad - Derecho Minero",
+       "Baja Prioridad - Servidumbre","Baja Prioridad - Servidumbre",
+       "Media Prioridad - Derecho Minero","Media Prioridad - Derecho Minero",
+       "Media Prioridad - Servidumbre","Media Prioridad - Servidumbre",
+       "Alta Prioridad - Derecho Minero","Alta Prioridad - Derecho Minero",
+       "Alta Prioridad - Servidumbre","Alta Prioridad - Servidumbre"
+       ],
+  "values":  [102, 49, 19, 
+              81, 21, 42, 7,17,2,
+              4,13,2,0,
+              11,31,6,1,
+              17,64,17,4
+             ],
+  "leaf": {"opacity": 0.4},
+  "marker": {"line": {"width": 1,"color":'lightgray'}},
+  "branchvalues": 'total',
+  //"textfont":{"color":'white'},
+  "hoverinfo":"label+value+percent parent",
+  "outsidetextfont": {size: 16, color: "white"}
+}];
+
+var layout = {
+  "margin": {"l": 0, "r": 0, "b": 20, "t": 25},
+  "sunburstcolorway":["#EAE7E0","#8D4A24","#5C2317"],
+  "paper_bgcolor":'#2E3032',
+  "autosize": true
+};
+var config = {responsive: true};
+
+
+Plotly.newPlot('myDiv', data, layout, {displayModeBar: false}, config)
+
+myPlot = document.getElementById("myDiv");
+
+</script>
+</body>
+</html>
